@@ -1,42 +1,49 @@
+function Keymap(keys, fn, desc, mode)
+	mode = mode or "n"
+	vim.keymap.set("n", keys, fn, {
+		desc = desc,
+	})
+end
+
 -- mapping the vim diagnonistics
-vim.keymap.set("n", "<leader>d", function()
+Keymap("<leader>d", function()
 	vim.diagnostic.config({ float = { border = "single" } })
 	vim.diagnostic.open_float()
-end, { desc = "Opens the error diagnostic float" })
+end, "Opens the error diagnostic float")
 
-vim.keymap.set("n", "d[", function()
+Keymap("d[", function()
 	vim.diagnostic.config({ float = { border = "single" } })
 	vim.diagnostic.jump({
 		count = -1,
 		float = true,
 	})
-end, { desc = "moves to previous vim  diagnostic float" })
+end, "moves to previous vim  diagnostic float")
 
-vim.keymap.set("n", "d]", function()
+Keymap("d]", function()
 	vim.diagnostic.config({ float = { border = "single" } })
 	vim.diagnostic.jump({
 		count = 1,
 		float = true,
 	})
-end, { desc = "moves to next vim  diagnostic float" })
+end, "moves to next vim  diagnostic float")
 
 --- open the definition in a new split
-vim.keymap.set("n", "gvd", function()
+Keymap("gvd", function()
 	vim.cmd("rightbelow vsplit")
 	vim.lsp.buf.definition()
 end, {})
 
 --- open the definition in a new split
-vim.keymap.set("n", "ghd", function()
+Keymap("ghd", function()
 	vim.cmd("rightbelow split")
 	vim.lsp.buf.definition()
 end, {})
 
 -- vertical split into file explorer
-vim.keymap.set("n", "v-", function()
+Keymap("v-", function()
 	vim.cmd("rightbelow vsplit")
 	vim.cmd("norm -")
 end, {})
 
 -- vertical split into file explorer
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", {})
+Keymap("<Esc>", "<C-\\><C-n>", {})

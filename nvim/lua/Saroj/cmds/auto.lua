@@ -14,20 +14,21 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 	callback = function(event)
-		local map = function(keys, func, desc)
-			vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
-		end
+		local mpicker = require("mini.pick")
 
-		map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-		map("<leader>gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-		map("<leader>gi", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-		map("<leader>td", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-		map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-		map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
-		map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-		map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-		map("K", vim.lsp.buf.hover, "Hover Documentation")
-		map("<leader>gd", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+		Keymap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+
+		-- this definitions are remaining.
+		--[[ Keymap("<leader>gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+		Keymap("<leader>gi", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+		Keymap("<leader>td", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+		Keymap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+		Keymap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols") ]]
+
+		Keymap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+		Keymap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+		Keymap("K", vim.lsp.buf.hover, "Hover Documentation")
+		Keymap("<leader>gd", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
 		local client = vim.lsp.get_client_by_id(event.data.client_id)
 		if client and client.server_capabilities.documentHighlightProvider then
