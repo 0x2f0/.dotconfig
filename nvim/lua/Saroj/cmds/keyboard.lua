@@ -1,7 +1,7 @@
 function Keymap(keys, fn, desc, mode)
 	mode = mode or "n"
 	vim.keymap.set("n", keys, fn, {
-		desc = desc,
+		desc = desc or "",
 	})
 end
 
@@ -31,19 +31,19 @@ end, "moves to next vim  diagnostic float")
 Keymap("gvd", function()
 	vim.cmd("rightbelow vsplit")
 	vim.lsp.buf.definition()
-end, {})
+end)
 
 --- open the definition in a new split
 Keymap("ghd", function()
 	vim.cmd("rightbelow split")
 	vim.lsp.buf.definition()
-end, {})
+end)
 
 -- vertical split into file explorer
 Keymap("v-", function()
 	vim.cmd("rightbelow vsplit")
 	vim.cmd("norm -")
-end, {})
+end)
 
--- vertical split into file explorer
-Keymap("<Esc>", "<C-\\><C-n>", {})
+--[[ -- vertical split into file explorer
+Keymap("<Esc>", "<C-\\><C-n>", {}) ]]
