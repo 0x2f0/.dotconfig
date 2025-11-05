@@ -8,6 +8,10 @@ open_projects() {
    sh "/home/saroj/.config/bin/ProjectOpener"
 }
 
+open_git_remote() {
+   sh "$HOME/.config/.dotconfig/scripts/xdg-opener.sh"
+}
+
 toggle_minimal_prompt() {
     if [[ $MINIMAL_PROMPT == true ]]; then
         export MINIMAL_PROMPT=false
@@ -30,10 +34,12 @@ function my_init() {
     zvm_define_widget notes_opener open_notes
     zvm_define_widget project_opener open_projects
     zvm_define_widget minimal_prompt toggle_minimal_prompt
+    zvm_define_widget git_remote open_git_remote 
 
     bindkey  '^n' notes_opener
     bindkey  '^f' project_opener
     bindkey  '^p' minimal_prompt
+    bindkey  '^g' git_remote
 
     # adding the fzf keybindings
     eval "$(fzf --zsh)"
