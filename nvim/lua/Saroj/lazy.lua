@@ -12,5 +12,5 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	import = "Saroj.plugins", 
+	import = "Saroj.plugins",
 }, {})

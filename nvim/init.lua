@@ -1,6 +1,7 @@
-require("Saroj.mapping")
-require("Saroj.lazy")
 require("Saroj.set")
+require("Saroj.lazy")
 
-require("Saroj.cmds.auto")
-require("Saroj.cmds.keyboard")
+require("Saroj.auto")
+require("Saroj.keyboard")
+
+require("Saroj.compile")

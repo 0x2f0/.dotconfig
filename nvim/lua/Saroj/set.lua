@@ -1,3 +1,6 @@
+-- remaping the space key as leader
+vim.g.mapleader = " "
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 

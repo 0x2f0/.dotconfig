@@ -4,7 +4,7 @@
 ---
 --- @class utils
 --- @field get_word_under_cursor fun(): string
---- @field keymap fun(key:string, fn:Fn ,desc:string?, mode:Mode?)
+--- @field keymap fun(key:string, fn:Fn|string ,desc:string?, mode:Mode?)
 ---
 --- @field set_theme fun(theme_name:string, transparent_bg:boolean?)
 ---
