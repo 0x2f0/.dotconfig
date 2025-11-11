@@ -1,4 +1,5 @@
-local keymap = require("Saroj.utils").keymap
+local utils = require("Saroj.utils")
+local keymap = utils.keymap
 local compile = require("Saroj.compile")
 
 keymap("-", "<CMD>Oil<CR>", "Open parent directory")
@@ -49,7 +50,7 @@ keymap("v-", function()
 	vim.cmd("norm -")
 end)
 
-keymap("<Esc>", "<C-\\><C-n>")
+keymap("<Esc>", "<C-\\><C-n>", nil, "t")
 
 keymap("<M-c>", function()
 	compile.command()
@@ -58,3 +59,7 @@ end, "Opens tmux like compile window at the bottom")
 keymap("<M-e>", function()
 	compile.editCmdAndCwd()
 end, "Edit the compile command envs")
+
+keymap("<C-l>", function()
+	utils.open_term_in_current_dir()
+end, "Open Terminal in the split aside.")

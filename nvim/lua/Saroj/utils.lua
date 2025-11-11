@@ -56,4 +56,29 @@ U.clear_interval = function(timer)
 	timer:close()
 end
 
+U.get_current_file_pwd = function()
+	local bufName = vim.api.nvim_buf_get_name(0)
+	local isOilBuf = false
+
+	if string.match(bufName, "oil://") then
+		return require("oil").get_current_dir(0)
+	end
+
+	local handle = io.popen("dirname " .. bufName)
+
+	if handle == nil then
+		return nil
+	end
+
+	local pwd = handle:read("*l")
+	handle:close()
+
+	return pwd
+end
+
+U.open_term_in_current_dir = function()
+	local pwd = U.get_current_file_pwd()
+	vim.cmd(string.format(":vnew | call termopen(&shell, #{cwd: '%s'})", pwd))
+end
+
 return U

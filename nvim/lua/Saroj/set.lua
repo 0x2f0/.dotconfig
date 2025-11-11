@@ -47,3 +47,6 @@ vim.opt.foldopen:remove("block")
 
 -- Disabling the warning
 vim.opt.shortmess:append('F')
+
+-- split default to right.
+vim.opt.splitright = true
