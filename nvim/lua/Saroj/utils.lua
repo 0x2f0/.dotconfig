@@ -27,6 +27,7 @@ U.set_theme = function(theme_name, transparent_bg)
 
 	if transparent_bg then
 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+		vim.api.nvim_set_hl(0, "hl-SignColumn", { bg = "none" })
 	end
 end
 

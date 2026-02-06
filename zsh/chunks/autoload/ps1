@@ -54,7 +54,6 @@ user=$(whoami)
 directory_str=""
 directory_len=${#path_array[@]}
 
-
 # if path is empty it means we are at / directory 
 # so, rendering / and returning
 if [ -z "$path_array" ]; then

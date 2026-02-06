@@ -1,2 +1,2 @@
--- This lsp configiguration file is loaded for all languages and will 
+-- this lsp configiguration file is loaded for all languages and will 
 -- be overridden or merged by other files that define it specifically.
