@@ -4,3 +4,6 @@
 # If set to true then will replace current ps1 variable with
 # $; 
 export MINIMAL_PROMPT=
+
+# This enables the debug messages.
+export ZSH_DEBUG=false

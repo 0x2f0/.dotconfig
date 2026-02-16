@@ -3,8 +3,5 @@
 alias ll="ls -alG"
 alias ls="ls --color=auto"
 
-# bfg repo cleaner 
-alias bfg="java -jar ~/.config/.dotconfig/bin/bfg-1.14.0.jar"
-
 # Clear all memory caches. LINUX only
 alias freeMEM="sudo sync && echo 3 | sudo tee /proc/sys/vm/drop_caches"

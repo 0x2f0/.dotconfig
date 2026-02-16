@@ -73,6 +73,8 @@
     XDG_SESSION_TYPE="wayland";
   };
 
+  # https://nix.dev/guides/faq#how-to-run-non-nix-executables
+  programs.nix-ld.enable = true;
   programs.firefox.enable = true;
   programs.tmux.enable = true;
   programs.zsh.enable = true;
@@ -148,6 +150,7 @@
     mpv # the media player used by ani-cli.
 
     obs-studio
+    ffmpeg
 
     # http://www.dest-unreach.org/socat/
     # used for bidirectional data transfer between two different socket. 
@@ -158,12 +161,17 @@
 
     zen-browser.packages.${pkgs.system}.default
 
-    (import ./neovim.nix { inherit stdenv fetchFromGitHub pkgconfig cmake makeWrapper lib; })
+    /* (import ./neovim.nix { inherit stdenv fetchFromGitHub pkgconfig cmake makeWrapper lib; }) */
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  hardware.graphics.enable = true;
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      nvidia-vaapi-driver
+    ];
+  };
 
   # Required to install unfree software such as nvidia-utils and obsidian
   nixpkgs.config.allowUnfree = true;

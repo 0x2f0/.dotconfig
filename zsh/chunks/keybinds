@@ -1,47 +1,36 @@
 #!/usr/bin/zsh
 
 open_notes() {
-    sh "/home/saroj/.config/.dotconfig/bin/NotesOpener"
+  sh "/home/saroj/.config/.dotconfig/bin/NotesOpener"
 }
 
 open_projects() {
-   sh "/home/saroj/.config/bin/ProjectOpener"
+  sh "/home/saroj/.config/bin/ProjectOpener"
 }
 
 open_git_remote() {
-   sh "$HOME/.config/.dotconfig/scripts/xdg-opener.sh"
+  sh "$HOME/.config/.dotconfig/scripts/xdg-opener.sh"
 }
 
 toggle_minimal_prompt() {
-    if [[ $MINIMAL_PROMPT == true ]]; then
-        export MINIMAL_PROMPT=false
-        echo "Minimal prompt disabled!!"
-    else
-        export MINIMAL_PROMPT=true
-        echo "Minimal prompt Activated!!"
-    fi
+  if [[ $MINIMAL_PROMPT == true ]]; then
+    export MINIMAL_PROMPT=false
+    echo "Minimal prompt disabled!!"
+  else
+    export MINIMAL_PROMPT=true
+    echo "Minimal prompt Activated!!"
+  fi
 }
+# https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html#Keymaps
+zle -N notes_opener open_notes
+zle -N project_opener open_projects
+zle -N minimal_prompt toggle_minimal_prompt
+zle -N git_remote open_git_remote 
 
-# It is necessary to define keybinds inside this function because i have zvm setup
-# which provides better vim mappings for zsh and it is controlling the vim keymaps.
-#
-# And this function allows the keybindings defined inside it to be executed 
-# After the script is loaded, which will prevent this plugin from overriding our
-# custom script keybindings
-#
-function my_init() {
+bindkey  '^n' notes_opener
+bindkey  '^f' project_opener
+bindkey  '^p' minimal_prompt
+bindkey  '^g' git_remote
 
-    zvm_define_widget notes_opener open_notes
-    zvm_define_widget project_opener open_projects
-    zvm_define_widget minimal_prompt toggle_minimal_prompt
-    zvm_define_widget git_remote open_git_remote 
-
-    bindkey  '^n' notes_opener
-    bindkey  '^f' project_opener
-    bindkey  '^p' minimal_prompt
-    bindkey  '^g' git_remote
-
-    # adding the fzf keybindings
-    eval "$(fzf --zsh)"
-}
-zvm_after_init_commands+=(my_init)
+# adding the fzf keybindings
+eval "$(fzf --zsh)"

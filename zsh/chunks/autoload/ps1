@@ -90,6 +90,8 @@ fi
 
 
 update_ps1() {
+
+debug "[calc] start"
     calculate_ps1
     PATH_PS1=" %B%F{202}$directory_str%f%b ${vcs_info_msg_0_}: " 
     MINIMAL_PS1=" %B%F{202}$;%f%b "
@@ -100,6 +102,7 @@ update_ps1() {
         PROMPT="$PATH_PS1"
     fi
 
+debug "[calc] end"
     # lets make it a simple dollar with git support.
     # TODO: Move the git status to the tmux
 }

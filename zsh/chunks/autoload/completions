@@ -1,10 +1,16 @@
 #!/usr/bin/zsh
+
+
+debug "[completion] start"
 # for auto/tab completion
 # TODO: update the completion to support fzf and not error out on invalid search
-autoload -U compinit 
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' menu select # matcher-list enables the case insensitivity.
-setopt MENU_COMPLETE # to automatically show the results regardless of the case soon after the tab is pressed.
-compinit
+# autoload -U compinit 
+# zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' menu select # matcher-list enables the case insensitivity.
+# setopt MENU_COMPLETE # to automatically show the results regardless of the case soon after the tab is pressed.
+# compinit
+debug "[completion] end"
 
 # for autosuggestions
+debug "[suggestion] start"
 source ~/.config/.dotconfig/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+debug "[suggestion] end"

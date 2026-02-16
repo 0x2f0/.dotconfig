@@ -1,0 +1,10 @@
+#!/usr/bin/zsh 
+
+function debug() {
+  if [ "$ZSH_DEBUG" != "true" ];then
+    return 0;
+  fi
+
+  t=$(date -Ins)
+  echo "[$t] $1"
+}

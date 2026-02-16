@@ -3,12 +3,8 @@
 # addind the zoxide configuration
 eval "$(zoxide init zsh)"
 
-# better vim mode
-# adding the zsh vi mode plugin: zvm
-zinit ice depth=1
-zinit light jeffreytse/zsh-vi-mode
-ZVM_CURSOR_STYLE_ENABLED=false
-
+debug "[fnm] start"
 # adding fnm
 zinit light "dominik-schwabe/zsh-fnm"
 export ZSH_FNM_NODE_VERSION="24.1.0"
+debug "[fnm] end"

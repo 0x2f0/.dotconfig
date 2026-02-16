@@ -1,40 +1,20 @@
 #!/usr/bin/zsh
 
-# Improve the path variable and it's controll
-# pnpm
-export PNPM_HOME="/home/saroj/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 
-# deno
-export DENO_INSTALL="/home/saroj/.deno"
-
 # Adding common binary paths
-local_bin=/home/saroj/.local/bin/
+local_bin="$HOME/.local/bin/"
 global_bin=/bin/
 user_bin=/usr/bin/
 user_local_bin=/usr/local/bin/
 
 export GO_BIN="$HOME/go/bin/"
 
-# Android studio PATH
-export ANDROID_HOME=$HOME/Android/Sdk/
-export GRADLE_HOME=/usr/bin/gradle
-
 # Custom application build from source path
-export CUSTOM_BUILD_PATH=$HOME/Documents/Applications/
+export CUSTOM_BUILD_PATH="$HOME/Documents/Applications/bin"
 
 # custom scripts path 
-export SCRIPT_DIR=$HOME/.config/.dotconfig/scripts
+export SCRIPT_DIR="$HOME/.config/.dotconfig/scripts"
 
-export DOCKER_HOST=unix:///run/user/1000/docker.sock
-
-export EMSCRIPTEN_PATH=/home/saroj/Applications/emsdk
-export EMSCRIPTEN_UPSTREAM_PATH=/home/saroj/Applications/emsdk/upstream/emscripten
-
-export PATH="$PATH:$local_bin:$global_bin:$user_bin:$user_local_bin:$BUN_INSTALL/bin:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$GRADLE_HOME/bin:$HOME/.cargo/bin/:/home/saroj/.local/share/gem/ruby/3.0.0/bin:$DENO_INSTALL/bin:$CUSTOM_BUILD_PATH:$GO_BIN:$SCRIPT_DIR:$EMSCRIPTEN_PATH:$EMSCRIPTEN_UPSTREAM_PATH"
+export PATH="$PATH:$local_bin:$global_bin:$user_bin:$user_local_bin:$BUN_INSTALL/bin:$CUSTOM_BUILD_PATH:$GO_BIN:$SCRIPT_DIR"
