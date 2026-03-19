@@ -1,4 +1,5 @@
 #!/usr/bin/zsh
 
 # Configuring the man pager to use less with colors
+export MANROFFOPT="-c" # adds this flag to the formatter.
 export MANPAGER="less -R --use-color -Dd+r -Du+b"

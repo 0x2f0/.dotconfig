@@ -1,3 +1,4 @@
+# will continue later on for now I am using $HOME/Documents/Applications/bin/nvim to use neovim from source.
 {stdenv, fetchFromGithub, pkgconfig, cmake,  makeWrapper, lib, ...}:
 
 stdenv.mkdDerivation rec {

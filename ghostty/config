@@ -1,6 +1,3 @@
-# ghosty configuration
-background = #141617
-
 # Removing the title bar
 window-decoration = false
 
@@ -27,4 +24,8 @@ keybind = alt+one=unbind
 keybind = alt+six=unbind
 keybind = alt+seven=unbind
 
+# for ssh terminfo support.
 shell-integration-features = ssh-terminfo, ssh-env
+
+#theme
+theme = Gruvbox Material Dark 

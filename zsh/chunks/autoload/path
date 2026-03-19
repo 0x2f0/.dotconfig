@@ -12,9 +12,14 @@ user_local_bin=/usr/local/bin/
 export GO_BIN="$HOME/go/bin/"
 
 # Custom application build from source path
-export CUSTOM_BUILD_PATH="$HOME/Documents/Applications/bin"
+export CUSTOM_BUILD_PATH="$HOME/Documents/Applications/path"
 
 # custom scripts path 
 export SCRIPT_DIR="$HOME/.config/.dotconfig/scripts"
 
-export PATH="$PATH:$local_bin:$global_bin:$user_bin:$user_local_bin:$BUN_INSTALL/bin:$CUSTOM_BUILD_PATH:$GO_BIN:$SCRIPT_DIR"
+export PATH="$PATH:$local_bin:$global_bin:$user_bin:$user_local_bin:$BUN_INSTALL/bin:$GO_BIN:$SCRIPT_DIR:$CUSTOM_BUILD_PATH/bin:$CUSTOM_BUILD_PATH/lib64:$CUSTOM_BUILD_PATH/share"
+
+export WASI_SDK_PATH="$HOME/Documents/Applications/wasm/wasi-sdk"
+export WASI_CLANG="$WASI_SDK_PATH/bin/clang"
+export WASI_SYSROOT="$WASI_SDK_PATH/share/wasi-sysroot"
+export wasi_cc="$WASI_CLANG --sysroot=$WASI_SYSROOT"
