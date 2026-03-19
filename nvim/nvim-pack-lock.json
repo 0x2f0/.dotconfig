@@ -1,0 +1,20 @@
+{
+  "plugins": {
+    "gruvbox-material": {
+      "rev": "790afe9dd085aa04eccd1da3626c5fa05c620e53",
+      "src": "https://github.com/sainnhe/gruvbox-material"
+    },
+    "mini.nvim": {
+      "rev": "28d993854bdcde7d06f0990cfe6a2c6577f3f8ab",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
+    "nvim-web-devicons": {
+      "rev": "746ffbb17975ebd6c40142362eee1b0249969c5c",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
+    "oil.nvim": {
+      "rev": "f55b25e493a7df76371cfadd0ded5004cb9cd48a",
+      "src": "https://github.com/stevearc/oil.nvim"
+    }
+  }
+}
