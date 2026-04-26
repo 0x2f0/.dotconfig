@@ -1,15 +1,23 @@
 {
   "plugins": {
+    "fff.nvim": {
+      "rev": "464f9d8b858cf49c9d30dd7554c81a6c10aaf9df",
+      "src": "https://github.com/dmtrKovalenko/fff.nvim"
+    },
+    "fzf-lua": {
+      "rev": "fcabe3cb7cfa6bd5148ffac0188997196401937d",
+      "src": "https://github.com/ibhagwan/fzf-lua"
+    },
     "gruvbox-material": {
-      "rev": "790afe9dd085aa04eccd1da3626c5fa05c620e53",
+      "rev": "11d779b26a9ab2b3db8c22c6ac9fb6e8ed4fea79",
       "src": "https://github.com/sainnhe/gruvbox-material"
     },
     "mini.nvim": {
-      "rev": "28d993854bdcde7d06f0990cfe6a2c6577f3f8ab",
+      "rev": "d76247d6e3ffa222784be5b156770e37c665f67e",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-web-devicons": {
-      "rev": "746ffbb17975ebd6c40142362eee1b0249969c5c",
+      "rev": "c72328a5494b4502947a022fe69c0c47e53b6aa6",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "oil.nvim": {
