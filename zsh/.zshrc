@@ -14,3 +14,18 @@ auto_load_scripts_in_dir "$HOME/.config/.dotconfig/zsh/completions/"
 
 # loading the keybindings
 source "$HOME/.config/.dotconfig/zsh/chunks/keybinds"
+
+# bit
+case ":$PATH:" in
+  *":/home/saroj/bin:"*) ;;
+  *) export PATH="$PATH:/home/saroj/bin" ;;
+esac
+# bit end
+
+# pnpm
+export PNPM_HOME="/home/saroj/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end

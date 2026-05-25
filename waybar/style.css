@@ -1,0 +1,42 @@
+* {
+		font-family: JetBrainsMonoNL Nerd Font;
+    font-size: 18px;
+}
+
+window#waybar {
+    background: transparent;
+    color: white;
+}
+
+.modules-left,
+.modules-right,
+.modules-center {
+	margin-top: 10px;
+}
+
+.modules-right {
+	margin-right: 10px;
+}
+
+.modules-left {
+	margin-left: 10px;
+}
+#workspaces, 
+#clock, 
+#pulseaudio, 
+#network {
+    background: rgba(0, 0, 0, 0.4);
+		padding: 5px 10px;
+		border-radius: 15px;
+}
+
+
+#workspaces button {
+    background: transparent;
+    color: white;
+}
+
+#workspaces button.active {
+    color: white;
+		background: #ff5f00;
+}

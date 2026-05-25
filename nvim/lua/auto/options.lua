@@ -13,3 +13,4 @@ vim.o.smartcase = true
 vim.o.splitright = true
 
 vim.g.mapleader = " "
+vim.o.signcolumn = "yes"

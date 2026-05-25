@@ -34,6 +34,18 @@
   };
 
 
+	fonts = {
+		enableDefaultPackages = true;
+		packages = with pkgs; [
+				font-awesome
+				nerd-fonts.symbols-only
+				nerd-fonts.jetbrains-mono
+				nerd-fonts.hack
+				nerd-fonts.ubuntu
+				nerd-fonts.adwaita-mono
+		];
+	};
+
 
    nixpkgs.config = { 
 		 allowUnsupportedSystem = true;
@@ -70,6 +82,8 @@
     wl-clipboard
     wl-clip-persist
     xdg-desktop-portal-hyprland
+		fd
+		ripgrep
 
     # screenshot
     slurp
@@ -113,6 +127,24 @@
 		bc
 
 		foot
+		cameractrls-gtk4
+
+		alsa-utils
+		audacity
+
+		plocate
+		qemu
+
+
+		# nvim lsp packages.
+		lua-language-server
+		emmet-ls
+		typescript-go
+		nodePackages.typescript-language-server
+		jq-lsp
+
+		# ricing
+		waybar
 ];
 
   /* 
@@ -148,6 +180,11 @@
   services.logind.settings.Login = {
     HandleLidSwitch = "ignore";
   };
+
+	services.locate = {
+		enable = true;
+		locate = pkgs.plocate;
+		};
 
   environment.variables.EDITOR = "nvim";
   environment.variables.VISUAL = "nvim";
@@ -201,9 +238,12 @@
 
 	hardware.bluetooth.enable = true;
 	services.blueman.enable = true;
+	# hardware.pulseaudio.enable = true;
 
   # Required to install unfree software such as nvidia-utils and obsidian
   nixpkgs.config.allowUnfree = true;
+
+  documentation.man.generateCaches = true;
 
   # Automatically cleans the builds
   nix.gc = {
