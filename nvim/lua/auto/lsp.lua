@@ -1,9 +1,18 @@
-vim.lsp.enable({'lua_ls', 'tsgo', 'jsonls', 'emmet_ls'})
+vim.lsp.enable({
+	'emmet_ls',
+	'jsonls',
+	'lua_ls',
+	"ts_ls",
+	"oxfmt",
+	'tsgo',
+	'tailwindcss'
+})
 
 -- default keybinds
 -- These GLOBAL keymaps are created unconditionally when Nvim starts:
 -- - "gra" (Normal and Visual mode) is mapped to |vim.lsp.buf.code_action()|
--- - "gri" is mapped to |vim.lsp.buf.implementation()|
+-- - "gri" is mapped to |vim.lsp.buf.implementation()| (TODO: This one is creating two entries of the same location and populating a quick fix list instead of going to the implementation directly. )
+--
 -- - "grn" is mapped to |vim.lsp.buf.rename()|
 -- - "grr" is mapped to |vim.lsp.buf.references()|
 -- - "grt" is mapped to |vim.lsp.buf.type_definition()|

@@ -1,6 +1,9 @@
 {
 	"position": "top",
 	"spacing": 10,
+	// https://github.com/Alexays/Waybar/wiki/Configuration#bar-config
+	"start_hidden": true,
+	"reload_style_on_change": true,
 	"modules-left": [
 		"network"
 	],

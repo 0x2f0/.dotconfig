@@ -77,6 +77,7 @@
     traceroute
 		pavucontrol
     go
+		tailwindcss-language-server
     obsidian
     ddcutil
     wl-clipboard
@@ -145,6 +146,7 @@
 
 		# ricing
 		waybar
+		killall # used in hyprland keybind to send 1 signal to waybar
 ];
 
   /* 

@@ -19,9 +19,9 @@ cmp.setup({
 
 	-- (Default) Only show the documentation popup when manually triggered
 	completion = {
-	menu = {
-		auto_show = false
-	},
+		--	menu = {
+		--		auto_show = false
+		--	},
 		documentation = {
 			auto_show = true,
 			window = { border = "rounded" },

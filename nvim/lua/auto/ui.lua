@@ -6,3 +6,5 @@ vim.pack.add({
 -- theme
 vim.o.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox-material]])
+-- :help gcr
+vim.o.gcr = "a:block"
