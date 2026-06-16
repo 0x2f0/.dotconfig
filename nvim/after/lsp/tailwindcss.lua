@@ -8,7 +8,7 @@
 --- To manually set the config file or CSS entry-point, see:
 --- https://github.com/tailwindlabs/tailwindcss-intellisense#tailwindcssexperimentalconfigfile
 
-local util = require('lspconfig.util')
+local util = require 'utils.lspconfig'
 
 ---@type vim.lsp.Config
 return {

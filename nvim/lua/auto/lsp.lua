@@ -4,8 +4,8 @@ vim.lsp.enable({
 	'lua_ls',
 	"ts_ls",
 	"oxfmt",
-	'tsgo',
-	'tailwindcss'
+	'tailwindcss',
+	'clangd'
 })
 
 -- default keybinds

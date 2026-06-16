@@ -59,6 +59,7 @@
     ranger
     brave
     git
+		git-lfs
     unzip
     jq
     fzf
@@ -66,6 +67,7 @@
     lshw
     ani-cli
     wofi
+    google-chrome
     wofi-emoji
     fnm
     nodejs_24
@@ -135,7 +137,6 @@
 
 		plocate
 		qemu
-
 
 		# nvim lsp packages.
 		lua-language-server
