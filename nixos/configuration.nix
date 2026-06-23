@@ -52,6 +52,7 @@
 	 };
 
   environment.systemPackages = with pkgs; [
+		nautilus
     vim 
     wget
     ghostty
@@ -110,6 +111,7 @@
     /* (import ./neovim.nix { inherit stdenv fetchFromGitHub pkgconfig cmake makeWrapper lib; }) */
 
 		python315
+		uv
 
     # c tools and utils
     gcc15
@@ -137,6 +139,8 @@
 
 		plocate
 		qemu
+		# Open virtual machine firmware
+		OVMF	
 
 		# nvim lsp packages.
 		lua-language-server
@@ -148,7 +152,15 @@
 		# ricing
 		waybar
 		killall # used in hyprland keybind to send 1 signal to waybar
+
+	  # gemini hackathon 
+		antigravity
+
+		bulletty
+		anki
 ];
+
+  virtualisation.libvirtd.enable = true;
 
   /* 
   this breaks reproducability for this system according to chatgpt
