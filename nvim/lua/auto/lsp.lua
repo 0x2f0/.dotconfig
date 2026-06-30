@@ -5,7 +5,8 @@ vim.lsp.enable({
 	"ts_ls",
 	"oxfmt",
 	'tailwindcss',
-	'clangd'
+	'clangd',
+	'typst'
 })
 
 -- default keybinds
