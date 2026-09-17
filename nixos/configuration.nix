@@ -1,4 +1,4 @@
-{ config, zen-browser, lib, pkgs, ... }:
+{ config, zen-browser, lib, pkgs, inputs, ... }:
 {
   imports =
     [ 
@@ -52,6 +52,10 @@
 	 };
 
   environment.systemPackages = with pkgs; [
+		inputs.zennotes.packages.${system}.zennotes-desktop
+		inputs.zennotes.packages.${system}.zennotes-server
+
+		gh
 		nautilus
     vim 
     wget
@@ -72,7 +76,6 @@
     wofi-emoji
     fnm
     nodejs_24
-    bun
     swww
     zoxide
     btop
@@ -118,6 +121,12 @@
     cmake
     gnumake
 		ninja
+		# man pages section 3 c libs.
+		glibcInfo
+
+		# man pages
+		man-pages
+		man-pages-posix
 
     # rust tools and utils
     rustup
@@ -127,6 +136,8 @@
 
 		llvmPackages_latest.clang-tools
 		llvmPackages_latest.clang
+		gdb
+		gf
 
 		ungoogled-chromium
 		bc
@@ -158,6 +169,35 @@
 
 		bulletty
 		anki
+		file
+
+		typst
+		tinymist # typst lsp
+
+		# Google appscript development locally for cosog summercamp.
+		google-clasp
+
+		google-cloud-sdk
+		github-linguist
+
+		v4l-utils
+		uvcdynctrl
+
+		claude-code
+		zed-editor
+
+		# to make the image processing package sharp work, which is required for nepaliecochat.bot, embedding model.
+		vips # image processing tool sharp uses under the hood.
+		pkg-config
+		gobject-introspection
+		glibc
+		stdenv.cc.cc
+
+		code-cursor
+		code-cursor-fhs
+		cursor-cli
+
+		lazygit
 ];
 
   virtualisation.libvirtd.enable = true;
@@ -208,10 +248,24 @@
     NIXOS_OZONE_WL="1";
     MOZ_ENABLE_WAYLAND="1";
     XDG_SESSION_TYPE="wayland";
+
+		LD_LIBRARY_PATH = with pkgs; pkgs.lib.makeLibraryPath [
+				stdenv.cc.cc.lib
+				glibc
+				vips
+		];
   };
 
+	programs.appimage.enable = true;
+	programs.appimage.binfmt = true;
   # https://nix.dev/guides/faq#how-to-run-non-nix-executables
   programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+		stdenv.cc.cc.lib
+		stdenv.cc.cc
+		glibc
+    vips
+	];
   programs.firefox.enable = true;
   programs.tmux.enable = true;
   programs.zsh.enable = true;
@@ -258,7 +312,7 @@
   # Required to install unfree software such as nvidia-utils and obsidian
   nixpkgs.config.allowUnfree = true;
 
-  documentation.man.generateCaches = true;
+  # documentation.man.generateCaches = true;
 
   # Automatically cleans the builds
   nix.gc = {

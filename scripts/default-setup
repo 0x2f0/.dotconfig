@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# open the some applications in the my usual workspaces.
+# obsidian workspace 1
+# terminal workspace 2 ( will setup to open the project opener here).
+# browser workspace 3
+
+hyprctl dispatch exec [workspace 1] obsidian
+hyprctl dispatch exec [workspace 2] ghostty
+hyprctl dispatch exec [workspace 3] zen-beta

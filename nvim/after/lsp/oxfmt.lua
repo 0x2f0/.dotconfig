@@ -72,7 +72,6 @@ return {
       fname
     )
 
-		print(vim.inspect(root_markers))
     -- find vite plus config with fmt field
     root_markers = util.root_markers_with_field(
       root_markers,

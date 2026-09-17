@@ -1,0 +1,6 @@
+
+[1;32mDEBUG [0mfrom start-hyprland ]: got an event from hyprland
+[1;32mDEBUG [0mfrom start-hyprland ]: got an event from hyprland
+[1;31mERR [0mfrom start-hyprland ]: Couldn't waitpid for hyprland: No child processes
+[1;32mDEBUG [0mfrom start-hyprland ]: hyprland exit, breaking poll, checking state
+[1;32mDEBUG [0mfrom start-hyprland ]: Hyprland exit cleanly.

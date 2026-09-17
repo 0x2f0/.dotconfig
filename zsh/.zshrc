@@ -32,3 +32,13 @@ esac
 
 # opencode
 export PATH=/home/saroj/.opencode/bin:$PATH
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/saroj/.local/bin:$PATH"
+
+# bun completions
+[ -s "/home/saroj/.bun/_bun" ] && source "/home/saroj/.bun/_bun"
+
+# Turso
+export PATH="$PATH:/home/saroj/.turso"

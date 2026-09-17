@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# launches monitor config according to the connection of 
+# external monitor.
+
+external_monitor="$1"
+echo "$external_monitor"
+
+if [[ -z "$external_monitor" ]]; then
+	if [[ $(cat /sys/class/drm/card0-HDMI-A-1/enabled) == "enabled" ]]; then
+		external_monitor=true
+	else
+		external_monitor=false
+	fi
+fi
+
+config_file_path="/home/saroj/.config/hypr/monitor.conf"
+
+#It goes like this name, resolution, position  and scaling
+# monitor=eDP-1,preferred,auto,1 
+# monitor=HDMI-A-1,1920x1080@50,auto,1
+default_monitor_config="
+	monitor=HDMI-A-1,disabled
+	monitor=eDP-1,preferred,auto,1
+"
+
+external_monitor_config="
+	# Offloading rendering to the GPU And falling back to integrated gpu.
+	env = AQ_DRM_DEVICES,/dev/dri/card0:/dev/dri/card1
+
+	monitor=eDP-1,disabled
+	monitor=HDMI-A-1,preferred,auto,1
+"
+
+if $external_monitor; then
+	echo "$external_monitor_config" > $config_file_path
+else
+	echo "$default_monitor_config" > $config_file_path
+fi
+
+echo "config_file_path = $config_file_path"
+echo "extern_monitor = $external_monitor"
+
+start-hyprland
