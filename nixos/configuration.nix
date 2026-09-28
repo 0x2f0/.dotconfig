@@ -198,6 +198,7 @@
 		cursor-cli
 
 		lazygit
+		discord
 ];
 
   virtualisation.libvirtd.enable = true;
