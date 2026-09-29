@@ -2,10 +2,10 @@
 
 # This is the prefered extenal monitor state
 activeExtMon="HDMI-A-1,1680x1050@75,0x0,1"
-activeIntMon="eDP-1,highrr,auto,1"
+activeIntMon="eDP-2,highrr,auto,1"
 
 inactiveExtMon="HDMI-A-1,disable"
-inactiveIntMon="eDP-1,disable"
+inactiveIntMon="eDP-2,disable"
 
 isExtMonitorConnected="$(hyprctl monitors | grep "HDMI-A-1")"
 

@@ -12,5 +12,5 @@ debug "[completion] end"
 
 # for autosuggestions
 debug "[suggestion] start"
-source ~/.config/.dotconfig/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.config/.dotconfig/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 debug "[suggestion] end"
