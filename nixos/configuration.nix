@@ -43,6 +43,7 @@
 				nerd-fonts.hack
 				nerd-fonts.ubuntu
 				nerd-fonts.adwaita-mono
+				winePackages.fonts
 		];
 	};
 
@@ -55,6 +56,7 @@
 		inputs.zennotes.packages.${system}.zennotes-desktop
 		inputs.zennotes.packages.${system}.zennotes-server
 
+		oxfmt
 		gh
 		nautilus
     vim 
@@ -86,6 +88,7 @@
 		tailwindcss-language-server
     obsidian
     ddcutil
+		brightnessctl
     wl-clipboard
     wl-clip-persist
     xdg-desktop-portal-hyprland
@@ -159,6 +162,7 @@
 		typescript-go
 		nodePackages.typescript-language-server
 		jq-lsp
+		bun
 
 		# ricing
 		waybar
