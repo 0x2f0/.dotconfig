@@ -57,6 +57,7 @@
 		inputs.zennotes.packages.${system}.zennotes-server
 
 		oxfmt
+		vscode-langservers-extracted
 		gh
 		nautilus
     vim 
